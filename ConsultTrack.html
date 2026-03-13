@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>HZ Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0f172a;--navy2:#1e293b;--slate:#334155;--muted:#64748b;
+  --border:#e2e8f0;--bg:#f0f4f8;
+  --blue:#1d4ed8;--violet:#6d28d9;--amber:#b45309;
+  --teal:#0f766e;--rose:#9d174d;--red:#be123c;--green:#166534;--cyan:#0e7490;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--navy2);min-height:100vh;}
+.hdr{background:var(--navy);height:48px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.brand{font-family:'Playfair Display',serif;font-size:16px;font-weight:800;color:#f8fafc;letter-spacing:-.3px;}
+.brand b{color:#38bdf8;}
+.brand sub{font-size:9px;color:#94a3b8;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.3px;margin-left:4px;vertical-align:middle;}
+.hdr-right{display:flex;align-items:center;gap:8px;}
+.mo-sel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:6px;padding:5px 7px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;-webkit-appearance:none;}
+.tabs{background:#fff;border-bottom:2px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:48px;z-index:40;padding:0 6px;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{background:transparent;border:none;border-bottom:3px solid transparent;padding:9px 10px;font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap;margin-bottom:-2px;}
+.tab.on{border-radius:5px 5px 0 0;}
+.page{padding:10px 11px;max-width:1300px;margin:0 auto;}
+.mo-strip{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);border-radius:9px;padding:7px 11px;margin-bottom:11px;display:flex;align-items:center;justify-content:space-between;}
+.mo-lbl{color:#bfdbfe;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;}
+.mo-name{color:#fff;font-size:13px;font-weight:800;margin-top:1px;}
+.mo-btns{display:flex;gap:4px;}
+.mbn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:5px;padding:3px 9px;font-size:10px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.flow-wrap{margin-bottom:11px;}
+.flow-row{display:grid;gap:7px;margin-bottom:7px;}
+.flow-row-1{grid-template-columns:1fr 1fr 1fr;}
+.flow-row-2{grid-template-columns:1fr 1fr;max-width:calc(66.6% + 3.5px);}
+.fc{border-radius:8px;padding:9px 10px;border:1.5px solid transparent;position:relative;}
+.fc-lbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px;}
+.fc-val{font-size:16px;font-weight:800;line-height:1.1;}
+.fc-sub{font-size:8px;margin-top:2px;opacity:.6;}
+.fc-op{position:absolute;right:-11px;top:50%;transform:translateY(-50%);width:15px;height:15px;background:#cbd5e1;border-radius:50%;font-size:9px;font-weight:800;color:#475569;display:flex;align-items:center;justify-content:center;z-index:2;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:11px;}
+.sc{border-radius:8px;padding:9px 10px;border:1.5px solid transparent;}
+.sc-lbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px;}
+.sc-val{font-size:16px;font-weight:800;line-height:1.2;}
+.sc-sub{font-size:8px;margin-top:1px;opacity:.65;}
+.mini-dash{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px;}
+.mc{border-radius:8px;padding:9px 10px;border:1.5px solid transparent;}
+.mc-lbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px;}
+.mc-val{font-size:15px;font-weight:800;line-height:1.2;}
+.mc-sub{font-size:8px;margin-top:2px;opacity:.68;}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+.topbar-l{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.ttl{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy2);}
+.pill{border-radius:20px;padding:1px 9px;font-size:10px;font-weight:700;}
+.topbar-r{display:flex;gap:5px;flex-wrap:wrap;}
+.sh{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--navy2);margin:14px 0 8px;}
+.btn{border:none;border-radius:7px;padding:7px 11px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;cursor:pointer;}
+.btn-nv{background:var(--navy2);color:#fff;}
+.btn-bl{background:var(--blue);color:#fff;}
+.btn-tl{background:var(--teal);color:#fff;}
+.btn-am{background:var(--amber);color:#fff;}
+.btn-cy{background:var(--cyan);color:#fff;}
+.btn-ro{background:var(--rose);color:#fff;}
+.bsm{padding:3px 8px;font-size:10px;border-radius:5px;border:none;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;}
+.b-ed{background:#f0f9ff;color:#0369a1;}
+.b-dl{background:#fff1f2;color:var(--red);}
+.b-dn{background:#f0fdf4;color:var(--green);}
+.b-cl{background:#fef9c3;color:#854d0e;}
+.b-sk{background:#f3f4f6;color:#374151;}
+.tw{overflow-x:auto;border-radius:9px;border:1.5px solid var(--border);background:#fff;}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:#f8fafc;}
+th{padding:7px 9px;text-align:left;font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;border-bottom:1.5px solid var(--border);white-space:nowrap;}
+td{padding:8px 9px;font-size:11px;color:var(--slate);border-bottom:1px solid #f1f5f9;vertical-align:middle;}
+tbody tr:last-child td{border-bottom:none;}
+.er td{text-align:center;padding:26px;color:var(--muted);font-size:12px;}
+tfoot tr{background:#f8fafc;border-top:2px solid var(--border);}
+tfoot td{font-weight:700;padding:7px 9px;font-size:11px;}
+.sb{border-radius:20px;padding:2px 8px;font-size:10px;font-weight:700;border:1px solid transparent;}
+.tb{border-radius:5px;padding:1px 7px;font-size:10px;font-weight:600;}
+.db{border-radius:7px;padding:1px 6px;font-size:9px;font-weight:600;margin-left:2px;}
+.wtag{border-radius:5px;padding:1px 6px;font-size:10px;font-weight:600;margin:1px 2px;display:inline-block;}
+.mo-ov{display:none;position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:100;align-items:center;justify-content:center;}
+.mo-ov.open{display:flex;}
+.mo-bx{background:#fff;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.22);width:94vw;max-width:500px;max-height:90vh;overflow-y:auto;padding:18px;}
+.mo-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;}
+.mo-ttl{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy2);}
+.mo-cls{border:none;background:#f1f5f9;border-radius:6px;width:27px;height:27px;cursor:pointer;font-size:16px;color:var(--muted);}
+.fld{margin-bottom:11px;}
+.fld label{display:block;font-size:10px;font-weight:700;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px;}
+.fld input,.fld select,.fld textarea{width:100%;padding:9px 10px;border:1.5px solid var(--border);border-radius:7px;font-size:15px;color:var(--navy2);background:#f8fafc;font-family:'DM Sans',sans-serif;outline:none;-webkit-appearance:none;}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:#94a3b8;background:#fff;}
+.fld textarea{height:48px;resize:none;}
+.fld .hint{font-size:10px;margin-top:3px;font-weight:600;color:#6d28d9;}
+.btn-sv{width:100%;background:var(--navy2);color:#fff;border:none;border-radius:8px;padding:13px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.pay-box{background:#f0fdf4;border-radius:7px;padding:9px 12px;margin-bottom:12px;}
+.pay-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;}
+.pay-row:last-child{border-top:1px solid #d1fae5;padding-top:4px;margin-top:3px;font-weight:700;margin-bottom:0;}
+.cg{display:grid;grid-template-columns:1fr;gap:9px;}
+.cc{background:#fff;border-radius:9px;border:1.5px solid var(--border);padding:12px 13px;}
+.cn{font-weight:700;font-size:13px;color:var(--navy2);margin-bottom:2px;}
+.cm{font-size:11px;color:var(--muted);margin-bottom:6px;}
+.cw{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px;}
+.ca{display:flex;gap:5px;}
+.cbg{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.cbi{display:flex;align-items:center;gap:4px;background:#f8fafc;border:1.5px solid var(--border);border-radius:6px;padding:5px 9px;cursor:pointer;font-size:12px;font-weight:600;}
+.cbi input{accent-color:var(--navy2);}
+.cbi.on{background:var(--navy2);color:#fff;border-color:var(--navy2);}
+.pr-out{background:#fff8f8;}
+.pr-clear{background:#f0fdf4;}
+.due-sect{margin-top:14px;}
+.due-hd{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;}
+.due-card{background:#fff;border-radius:8px;border:1.5px solid var(--border);padding:10px 12px;margin-bottom:7px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.due-card.ov{border-color:#fca5a5;background:#fff8f8;}
+.due-card.sn{border-color:#fde68a;background:#fffbeb;}
+.due-card.ok{border-color:#6ee7b7;background:#f0fdf4;}
+.due-card.dn{border-color:#93c5fd;background:#eff6ff;}
+.dc-left{flex:1;min-width:0;}
+.dc-name{font-weight:700;font-size:13px;color:var(--navy2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dc-per{font-size:10px;color:var(--muted);margin-top:1px;}
+.dc-right{text-align:right;flex-shrink:0;}
+.dc-date{font-size:11px;font-weight:600;color:var(--slate);}
+.dc-fee{font-size:12px;font-weight:700;color:#0f766e;margin-top:2px;}
+/* ── RECURRING ── */
+.recur-card{background:#fff;border-radius:9px;border:1.5px solid var(--border);padding:11px 13px;margin-bottom:8px;}
+.recur-card.inactive{opacity:.55;border-style:dashed;}
+.recur-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:4px;}
+.recur-name{font-weight:700;font-size:13px;color:var(--navy2);}
+.recur-meta{font-size:10px;color:var(--muted);margin-bottom:6px;}
+.recur-actions{display:flex;gap:5px;flex-wrap:wrap;}
+.recur-tag{border-radius:20px;padding:2px 8px;font-size:9px;font-weight:700;}
+/* ── PERFORMANCE ── */
+.perf-section{margin-bottom:18px;}
+.perf-big{font-size:28px;font-weight:800;line-height:1;}
+.perf-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px;}
+.perf-sub{font-size:10px;margin-top:3px;opacity:.7;}
+.share-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px;}
+.share-card{border-radius:10px;padding:13px 14px;border:1.5px solid transparent;}
+.share-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px;}
+.share-val{font-size:22px;font-weight:800;line-height:1.1;}
+.share-pct{font-size:11px;font-weight:600;margin-top:3px;opacity:.8;}
+.pct-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.pct-row label{font-size:11px;font-weight:600;min-width:90px;}
+.pct-row input{flex:1;border:1.5px solid var(--border);border-radius:6px;padding:6px 8px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;background:#f8fafc;}
+.pct-row span{font-size:11px;color:var(--muted);min-width:20px;}
+.perf-bar{height:8px;border-radius:4px;background:#e2e8f0;overflow:hidden;margin-bottom:4px;}
+.perf-bar-fill{height:100%;border-radius:4px;transition:width .4s;}
+.month-perf-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f1f5f9;font-size:12px;}
+.month-perf-row:last-child{border-bottom:none;}
+/* ── MOBILE TABLE: hide secondary cols, use stacked cell ── */
+.col-hide{display:none;}
+.cell-sub{font-size:10px;color:#64748b;margin-top:2px;line-height:1.4;}
+.cell-sub span{margin-right:5px;}
+/* keep tw scrollable only as last resort */
+.tw{overflow-x:visible;}
+
+@media(min-width:680px){
+  .hdr{height:52px;padding:0 20px;}
+  .brand{font-size:19px;}
+  .page{padding:14px 18px;}
+  .flow-row-1{grid-template-columns:repeat(5,1fr);}
+  .flow-row-2{display:none;}
+  .stats-grid{grid-template-columns:repeat(6,1fr);}
+  .mini-dash{grid-template-columns:repeat(6,1fr);}
+  .cg{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));}
+  .share-grid{grid-template-columns:repeat(4,1fr);}
+  .tabs{top:52px;padding:0 12px;}
+  .tab{font-size:11.5px;padding:10px 12px;}
+  /* restore hidden cols on desktop */
+  .col-hide{display:table-cell;}
+  .cell-sub{display:none;}
+  .tw{overflow-x:auto;}
+}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div><span class="brand"><b>HZ</b> Consulting<sub>income manager</sub></span></div>
+  <div class="hdr-right">
+    <button onclick="exportData()" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:6px;padding:5px 9px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600;" title="Export all data">⬇ Export</button>
+    <button onclick="triggerImport()" style="background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:6px;padding:5px 9px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600;" title="Import backup">⬆ Import</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)"/>
+    <select class="mo-sel" id="globalMonth" onchange="onMoChange()"></select>
+  </div>
+</div>
+<div class="tabs" id="tabBar"></div>
+<div class="page" id="appContent"></div>
+<div class="mo-ov" id="modalOverlay">
+  <div class="mo-bx">
+    <div class="mo-hd"><span class="mo-ttl" id="modalTitle"></span><button class="mo-cls" onclick="closeModal()">×</button></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+const S={
+  activeTab:'Dashboard',
+  selectedMonth:'',
+  customers:[],
+  // work records (one-time or recurring instances)
+  accounting:[],vat:[],corporateTax:[],audit:[],other:[],
+  // recurring templates (master list)
+  // {id, store, customerId, label, fees, subtype, frequency, active, skippedMonths:[], ...storeFields}
+  recurringTemplates:[],
+  // income allocation log
+  incomeLog:[]
+};
+let eId=null,eStore=null,eSubtype=null;
+const STORES=['accounting','vat','corporateTax','audit','other'];
+
+// ═══════════════════════════════════════════════════════
+// MONTH UTILS
+// ═══════════════════════════════════════════════════════
+const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MNS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function nowYM(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function ymLbl(ym){if(!ym)return '';const[y,m]=ym.split('-');return `${MN[+m-1]} ${y}`;}
+function ymShort(ym){if(!ym)return '';const[y,m]=ym.split('-');return `${MNS[+m-1]} ${y}`;}
+function prevYM(ym){const[y,m]=ym.split('-').map(Number);const d=new Date(y,m-2,1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function nextYM(ym){const[y,m]=ym.split('-').map(Number);const d=new Date(y,m,1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function recYM(r){return (r.completedMonth||r.dueDate||r.filingDue||r.regDate||'').slice(0,7);}
+function buildMoOpts(){
+  const sel=document.getElementById('globalMonth');
+  const opts=[];
+  for(let i=-24;i<=12;i++){const d=new Date();d.setDate(1);d.setMonth(d.getMonth()+i);const ym=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;opts.push(ym);}
+  sel.innerHTML=opts.map(m=>`<option value="${m}"${m===S.selectedMonth?' selected':''}>${ymShort(m)}</option>`).join('');
+}
+function onMoChange(){S.selectedMonth=document.getElementById('globalMonth').value;renderAll();}
+function shiftMo(d){if(d===0)S.selectedMonth=nowYM();else if(d<0)S.selectedMonth=prevYM(S.selectedMonth);else S.selectedMonth=nextYM(S.selectedMonth);buildMoOpts();renderAll();}
+function moOpts(sel){
+  const o=[];
+  for(let i=-12;i<=3;i++){const d=new Date();d.setDate(1);d.setMonth(d.getMonth()+i);const ym=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;o.push(ym);}
+  return o.map(m=>`<option value="${m}"${m===sel?' selected':''}>${ymShort(m)}</option>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+// RECURRING — generate instances for a month
+// ═══════════════════════════════════════════════════════
+function getRecurringForMonth(ym){
+  // Returns virtual record objects for active templates not skipped this month
+  // These are display-only unless the user has already created a real instance
+  return S.recurringTemplates.filter(t=>{
+    if(!t.active)return false;
+    if((t.skippedMonths||[]).includes(ym))return false;
+    // check if a real instance already exists for this month+template
+    const exists=S[t.store]&&S[t.store].some(r=>r.recurTemplateId===t.id&&r.workMonth===ym);
+    return !exists;
+  }).map(t=>({
+    ...t,
+    _isVirtual:true,
+    id:'virt_'+t.id+'_'+ym,
+    workMonth:ym,
+    status:'Pending',
+    fees:t.fees,
+    amountCollected:0,
+    payments:[],
+    completedMonth:null
+  }));
+}
+
+// For a given store and month: real records + virtual recurring
+function getRecordsForMonth(store,ym){
+  const real=S[store].filter(r=>recYM(r)===ym||(r.workMonth===ym&&!r.completedMonth&&!r.dueDate&&!r.filingDue&&!r.regDate));
+  const virt=getRecurringForMonth(ym).filter(t=>t.store===store);
+  return [...real,...virt];
+}
+
+// ═══════════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════════
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function escA(s){return String(s||'').replace(/"/g,'&quot;');}
+function v(id){const e=document.getElementById(id);return e?e.value.trim():'';}
+function num(id){return parseFloat(v(id))||0;}
+function fmt(n){return Number(n||0).toLocaleString('en-AE',{minimumFractionDigits:0,maximumFractionDigits:0});}
+function custName(id){return(S.customers.find(c=>c.id===id)||{}).name||'—';}
+
+function daysTo(ds){if(!ds)return null;const t=new Date();t.setHours(0,0,0,0);const d=new Date(ds);d.setHours(0,0,0,0);return Math.round((d-t)/86400000);}
+function dueBadge(ds){
+  if(!ds)return '';const d=daysTo(ds);
+  let bg,c,txt;
+  if(d<0){bg='#fee2e2';c='#7f1d1d';txt=`${Math.abs(d)}d overdue`;}
+  else if(d===0){bg='#fef3c7';c='#92400e';txt='Due today';}
+  else if(d<=7){bg='#fef3c7';c='#92400e';txt=`${d}d left`;}
+  else if(d<=30){bg='#dbeafe';c='#1e3a8a';txt=`${d}d left`;}
+  else{bg='#d1fae5';c='#065f46';txt=`${d}d left`;}
+  return `<span class="db" style="background:${bg};color:${c}">${txt}</span>`;
+}
+function sBadge(s){
+  const M={Active:{bg:'#d1fae5',c:'#065f46',b:'#6ee7b7'},Completed:{bg:'#dbeafe',c:'#1e3a8a',b:'#93c5fd'},Overdue:{bg:'#fee2e2',c:'#7f1d1d',b:'#fca5a5'},Pending:{bg:'#fef9c3',c:'#78350f',b:'#fde68a'},'De-registered':{bg:'#f3f4f6',c:'#374151',b:'#d1d5db'},Registered:{bg:'#ede9fe',c:'#4c1d95',b:'#c4b5fd'},Skipped:{bg:'#f1f5f9',c:'#64748b',b:'#cbd5e1'}};
+  const st=M[s]||M.Pending;
+  return `<span class="sb" style="background:${st.bg};color:${st.c};border-color:${st.b}">${s}</span>`;
+}
+function pBadge(r){
+  const due=Number(r.fees||0),coll=Number(r.amountCollected||0);
+  if(r._isVirtual)return `<span style="color:#94a3b8;font-size:10px">—</span>`;
+  if(r.status!=='Completed')return `<span style="color:#94a3b8;font-size:10px">—</span>`;
+  if(coll>=due)return `<span class="sb" style="background:#d1fae5;color:#065f46;border-color:#6ee7b7">Collected</span>`;
+  if(coll>0)return `<span class="sb" style="background:#fef9c3;color:#78350f;border-color:#fde68a">Partial</span>`;
+  return `<span class="sb" style="background:#fee2e2;color:#7f1d1d;border-color:#fca5a5">Unpaid</span>`;
+}
+function recurBadge(){return `<span class="recur-tag" style="background:#ede9fe;color:#4c1d95">↻ Recurring</span>`;}
+function oneTimeBadge(){return `<span class="recur-tag" style="background:#f0f9ff;color:#0369a1">⊙ One-time</span>`;}
+function getVatDue(p){const y=new Date().getFullYear();const M={'Q1 (Jan–Mar)':`${y}-04-28`,'Q2 (Apr–Jun)':`${y}-07-28`,'Q3 (Jul–Sep)':`${y}-10-28`,'Q4 (Oct–Dec)':`${y+1}-01-28`};return M[p]||'';}
+function getCTDue(ye){if(!ye)return '';const d=new Date(ye);d.setMonth(d.getMonth()+9);return d.toISOString().split('T')[0];}
+const WC={Accounting:{bg:'#eff6ff',c:'#1d4ed8'},VAT:{bg:'#f5f3ff',c:'#6d28d9'},'Corporate Tax':{bg:'#fefce8',c:'#854d0e'},'Audit & Reports':{bg:'#f0fdf4',c:'#166534'},'Other Works':{bg:'#fdf2f8',c:'#9d174d'}};
+
+// ═══════════════════════════════════════════════════════
+// FINANCIAL CALCS (include virtual recurring in pending counts but NOT in billed)
+// ═══════════════════════════════════════════════════════
+function calcOpeningBal(ym){
+  let t=0;
+  STORES.forEach(s=>S[s].forEach(r=>{const rm=recYM(r)||r.workMonth||'';if(r.status==='Completed'&&rm&&rm<ym)t+=Number(r.fees||0)-Number(r.amountCollected||0);}));
+  return Math.max(0,t);
+}
+function calcBilledThisMo(ym){let t=0;STORES.forEach(s=>S[s].filter(r=>r.status==='Completed'&&(recYM(r)===ym||r.workMonth===ym)).forEach(r=>t+=Number(r.fees||0)));return t;}
+function calcAllCollUpTo(ym){let t=0;STORES.forEach(s=>S[s].forEach(r=>(r.payments||[]).forEach(p=>{if(p.month<=ym)t+=Number(p.amount||0);})));return t;}
+function calcThisMoColl(ym){let t=0;STORES.forEach(s=>S[s].forEach(r=>(r.payments||[]).forEach(p=>{if(p.month===ym)t+=Number(p.amount||0);})));return t;}
+function calcOutPerCust(ym){
+  const res={};
+  S.customers.forEach(c=>{
+    let ob=0,billed=0,totalDue=0,totalColl=0;
+    STORES.forEach(s=>{
+      S[s].filter(r=>r.customerId===c.id&&r.status==='Completed').forEach(r=>{
+        const rm=recYM(r)||r.workMonth||'';
+        if(rm&&rm<ym)ob+=Math.max(0,Number(r.fees||0)-Number(r.amountCollected||0));
+        if(rm===ym)billed+=Number(r.fees||0);
+        if(rm&&rm<=ym)totalDue+=Number(r.fees||0);
+      });
+      S[s].filter(r=>r.customerId===c.id).forEach(r=>{(r.payments||[]).forEach(p=>{if(p.month<=ym)totalColl+=Number(p.amount||0);});});
+    });
+    res[c.id]={name:c.name,ob,billed,totalDue,totalColl,outstanding:Math.max(0,totalDue-totalColl)};
+  });
+  return res;
+}
+function calcStatsMo(store,ym){
+  const m=getRecordsForMonth(store,ym);
+  const done=m.filter(r=>r.status==='Completed');
+  const due=done.reduce((a,r)=>a+Number(r.fees||0),0);
+  const coll=m.reduce((a,r)=>a+Number(r.amountCollected||0),0);
+  return{total:m.length,completed:done.length,pending:m.length-done.length,due,coll,out:due-coll};
+}
+
+// Total billed across all months (for performance)
+function calcTotalBilledRange(fromYM,toYM){
+  let t=0;
+  STORES.forEach(s=>S[s].filter(r=>{const rm=recYM(r)||r.workMonth||'';return r.status==='Completed'&&rm>=fromYM&&rm<=toYM;}).forEach(r=>t+=Number(r.fees||0)));
+  return t;
+}
+function calcMonthlyBilled(ym){
+  let t=0;
+  STORES.forEach(s=>S[s].filter(r=>r.status==='Completed'&&(recYM(r)===ym||r.workMonth===ym)).forEach(r=>t+=Number(r.fees||0)));
+  return t;
+}
+
+// ═══════════════════════════════════════════════════════
+// ACTIONS
+// ═══════════════════════════════════════════════════════
+function markDone(store,id,isVirt,templId,workMo){
+  if(isVirt){
+    // Create a real record from the template
+    const t=S.recurringTemplates.find(x=>x.id===templId);
+    if(!t)return;
+    const rec={id:uid(),customerId:t.customerId,recurTemplateId:t.id,workMonth:workMo,status:'Completed',completedMonth:workMo,fees:t.fees,amountCollected:0,payments:[],notes:t.notes||''};
+    // copy store-specific fields
+    Object.assign(rec,{frequency:t.frequency,period:t.period,dueDate:t.dueDate,subtype:t.subtype,vatPeriod:t.vatPeriod,filingDue:t.filingDue,reportType:t.reportType,workType:t.workType,taxYear:t.taxYear,yearEnd:t.yearEnd});
+    S[store].push(rec);
+  } else {
+    const r=S[store].find(r=>r.id===id);
+    if(!r)return;
+    r.status='Completed';
+    if(!r.completedMonth)r.completedMonth=r.workMonth||S.selectedMonth;
+  }
+  renderAll();
+}
+function skipRecurMonth(templId,ym){
+  const t=S.recurringTemplates.find(x=>x.id===templId);
+  if(!t)return;
+  if(!t.skippedMonths)t.skippedMonths=[];
+  if(!t.skippedMonths.includes(ym))t.skippedMonths.push(ym);
+  renderAll();
+}
+function unskipRecurMonth(templId,ym){
+  const t=S.recurringTemplates.find(x=>x.id===templId);
+  if(!t)return;
+  t.skippedMonths=(t.skippedMonths||[]).filter(m=>m!==ym);
+  renderAll();
+}
+function cancelRecurring(templId){
+  if(!confirm('Remove this recurring work from master? It will no longer appear in any future month.'))return;
+  S.recurringTemplates=S.recurringTemplates.filter(t=>t.id!==templId);
+  renderAll();
+}
+function delRec(store,id){if(!confirm('Delete?'))return;S[store]=S[store].filter(r=>r.id!==id);renderAll();}
+function delCust(id){if(!confirm('Delete customer and all records?'))return;S.customers=S.customers.filter(c=>c.id!==id);STORES.forEach(s=>{S[s]=S[s].filter(r=>r.customerId!==id);});S.recurringTemplates=S.recurringTemplates.filter(t=>t.customerId!==id);renderAll();}
+
+// ═══════════════════════════════════════════════════════
+// COLLECT PAYMENT
+// ═══════════════════════════════════════════════════════
+function openColl(store,id){
+  const r=S[store].find(x=>x.id===id);if(!r)return;
+  const out=Number(r.fees||0)-Number(r.amountCollected||0);
+  openModal('Collect Payment',`
+    <div style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:10px">${esc(custName(r.customerId))}</div>
+    <div class="pay-box">
+      <div class="pay-row"><span>Total Fees</span><b>AED ${fmt(r.fees)}</b></div>
+      <div class="pay-row"><span>Collected</span><b style="color:#0f766e">AED ${fmt(r.amountCollected)}</b></div>
+      <div class="pay-row"><span>Outstanding</span><b style="color:#be123c">AED ${fmt(out)}</b></div>
+    </div>
+    <div class="fld"><label>Amount (AED)</label><input id="c_a" type="number" value="${out}" min="0"/></div>
+    <div class="fld"><label>Month</label><select id="c_m">${moOpts(S.selectedMonth)}</select></div>
+    <div class="fld"><label>Reference</label><input id="c_r" type="text" placeholder="Cheque / transfer ref"/></div>
+    <button class="btn-sv" onclick="saveColl('${store}','${id}')">Save Payment</button>`);
+}
+function saveColl(store,id){
+  const r=S[store].find(x=>x.id===id);if(!r)return;
+  const amt=num('c_a'),mo=v('c_m'),ref=v('c_r');
+  if(!r.payments)r.payments=[];
+  r.payments.push({month:mo,amount:amt,ref});
+  r.amountCollected=Math.min(Number(r.fees||0),Number(r.amountCollected||0)+amt);
+  closeModal();renderAll();
+}
+
+// ═══════════════════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════════════════
+function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('modalOverlay').classList.add('open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');eId=null;eStore=null;eSubtype=null;}
+document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+const fl=(l,h,hint='')=>`<div class="fld"><label>${l}</label>${h}${hint?`<div class="hint">${hint}</div>`:''}</div>`;
+const fi=(id,t='text',ph='',val='',x='')=>`<input id="${id}" type="${t}" placeholder="${escA(ph)}" value="${escA(val)}" ${x}/>`;
+const fs=(id,opts,val='')=>`<select id="${id}">${opts.map(o=>`<option${o===val?' selected':''}>${esc(o)}</option>`).join('')}</select>`;
+const fta=(id,val='')=>`<textarea id="${id}">${esc(val)}</textarea>`;
+
+// ═══════════════════════════════════════════════════════
+// CUSTOMER FORMS
+// ═══════════════════════════════════════════════════════
+const WTYPES=['Accounting','VAT','Corporate Tax','Audit & Reports','Other Works'];
+function openAddCust(){eId=null;eStore='customers';openModal('New Customer',custForm({}));}
+function openEditCust(id){const c=S.customers.find(x=>x.id===id);if(!c)return;eId=id;eStore='customers';openModal('Edit Customer',custForm(c));}
+function custForm(c){
+  const works=c.works||[];
+  return `<div class="fr">${fl('Name',fi('f_nm','text','Full name',c.name||''))}${fl('TRN',fi('f_trn','text','Tax Reg.',c.trn||''))}</div>
+  <div class="fr">${fl('Mobile',fi('f_mo','text','+971…',c.mobile||''))}${fl('Email',fi('f_em','email','email@…',c.email||''))}</div>
+  ${fl('Address / Notes',fta('f_ad',c.address||''))}
+  <div class="fld"><label>Nature of Works</label><div class="cbg" id="wg">
+    ${WTYPES.map(w=>`<label class="cbi${works.includes(w)?' on':''}" onclick="tgW(this)"><input type="checkbox" value="${w}"${works.includes(w)?' checked':''}>${w}</label>`).join('')}
+  </div></div>
+  <button class="btn-sv" onclick="saveCust()">Save Customer</button>`;
+}
+function tgW(el){el.classList.toggle('on');el.querySelector('input').checked=el.classList.contains('on');}
+function saveCust(){
+  const name=v('f_nm');if(!name){alert('Name required.');return;}
+  const works=[...document.querySelectorAll('#wg input:checked')].map(i=>i.value);
+  const rec={id:eId||uid(),name,trn:v('f_trn'),mobile:v('f_mo'),email:v('f_em'),address:v('f_ad'),works};
+  if(eId)S.customers=S.customers.map(c=>c.id===eId?rec:c);else S.customers.push(rec);
+  closeModal();renderAll();
+}
+
+// ═══════════════════════════════════════════════════════
+// WORK RECORD FORMS
+// ═══════════════════════════════════════════════════════
+const FREQ=['Monthly','Quarterly','Annual'];
+const VATQ=['Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)'];
+const STATS=['Active','Pending','Completed','Overdue','Registered','De-registered'];
+const RTYPES=['Annual Financial Statements','Internal Audit','External Audit','Management Accounts','Forensic Audit','Compilation Report','Other'];
+function cOpts(sel=''){return S.customers.map(c=>`<option value="${c.id}"${c.id===sel?' selected':''}>${esc(c.name)}</option>`).join('');}
+function cFld(val=''){return fl('Customer',`<select id="f_cu"><option value="">— select —</option>${cOpts(val)}`);}
+function mFld(val=''){return fl('Work Month',`<select id="f_wmo">${moOpts(val||S.selectedMonth)}</select>`,'Month this work is billed for');}
+
+function openAdd(store,sub){
+  if(!S.customers.length){alert('Add a customer first.');return;}
+  eId=null;eStore=store;eSubtype=sub||null;
+  const t={accounting:'New Accounting Record',vat:`VAT – ${sub}`,corporateTax:`Corp Tax – ${sub}`,audit:'New Audit / Report',other:'New Other Work'};
+  openModal(t[store],buildForm(store,sub,{}));
+}
+function openEdit(store,id){
+  const r=S[store].find(x=>x.id===id);if(!r)return;
+  eId=id;eStore=store;eSubtype=r.subtype||null;
+  openModal('Edit Record',buildForm(store,r.subtype,r));
+}
+
+function buildForm(store,sub,r){
+  const cv=r.customerId||'';
+  const isRecur=r.recurTemplateId?true:false;
+  const typeToggle=`<div class="fld"><label>Work Type</label>
+    <div style="display:flex;gap:8px">
+      <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="radio" name="wtype" value="onetime" id="wt_ot"${!r._forceRecur?' checked':''}> One-time</label>
+      <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="radio" name="wtype" value="recurring" id="wt_rc"${r._forceRecur?' checked':''}> Recurring (monthly)</label>
+    </div></div>`;
+  const sf=fl('Fees (AED)',fi('f_fe','number','0',r.fees||''));
+  const stt=fl('Status',fs('f_st',STATS,r.status||'Active'));
+  const bot=`<div class="fr">${fl('Collected (AED)',fi('f_co','number','0',r.amountCollected||''))}${fl('Notes',fi('f_no','text','',r.notes||''))}</div>`;
+  const mf=mFld(r.workMonth||r.completedMonth||r.dueDate||'');
+  if(store==='accounting')return `${cFld(cv)}${typeToggle}${mf}<div class="fr">${fl('Frequency',fs('f_fr',FREQ,r.frequency||'Monthly'))}${fl('Period',fi('f_pe','text','Mar 2025',r.period||''))}</div>${fl('Due Date',fi('f_dd','date','',r.dueDate||''))}<div class="fr">${sf}${stt}</div>${bot}<button class="btn-sv" onclick="saveRec('accounting')">Save</button>`;
+  if(store==='vat'){const iF=sub==='Filing',iR=sub==='Registration',iD=sub==='De-registration';return `${cFld(cv)}${typeToggle}${mf}${iF?fl('VAT Quarter',fs('f_vq',VATQ,r.vatPeriod||VATQ[0]),'28th of month after quarter end'):''}${iR?fl('Reg Date',fi('f_rd','date','',r.regDate||'')):''}${iD?fl('De-reg Date',fi('f_dd2','date','',r.deregDate||'')):''}${fl('Filing / Action Due',fi('f_dd','date','',r.filingDue||r.regDate||r.deregDate||''))}<div class="fr">${sf}${stt}</div>${bot}<button class="btn-sv" onclick="saveRec('vat')">Save</button>`;}
+  if(store==='corporateTax'){const iF=sub==='Filing',iR=sub==='Registration',iD=sub==='De-registration';return `${cFld(cv)}${typeToggle}${mf}<div class="fr">${fl('Tax Year',fi('f_ty','text','2024',r.taxYear||''))}${iF?fl('FY End Date',fi('f_ye','date','',r.yearEnd||'','onchange="autoCT()"')):'<div></div>'}</div>${iF?`<div id="ctH" style="font-size:10px;color:#b45309;margin:-4px 0 10px;font-weight:600">${r.yearEnd?'📅 Filing due: '+getCTDue(r.yearEnd):'📅 9 months after FY end'}</div>`:''}${iR?fl('Reg Date',fi('f_rd','date','',r.regDate||'')):''}${iD?fl('De-reg Date',fi('f_dd2','date','',r.deregDate||'')):''}${fl('Filing Due',fi('f_dd','date','',r.filingDue||r.regDate||''))}<div class="fr">${sf}${stt}</div>${bot}<button class="btn-sv" onclick="saveRec('corporateTax')">Save</button>`;}
+  if(store==='audit')return `${cFld(cv)}${typeToggle}${mf}${fl('Report Type',fs('f_rt',RTYPES,r.reportType||RTYPES[0]))}<div class="fr">${fl('Period',fi('f_pe','text','FY 2024',r.period||''))}${fl('Due Date',fi('f_dd','date','',r.dueDate||''))}</div><div class="fr">${sf}${stt}</div>${bot}<button class="btn-sv" onclick="saveRec('audit')">Save</button>`;
+  if(store==='other')return `${cFld(cv)}${typeToggle}${mf}${fl('Work Type',fi('f_wt','text','ESR, UBO…',r.workType||''))}<div class="fr">${fl('Period',fi('f_pe','text','Mar 2025',r.period||''))}${fl('Due Date',fi('f_dd','date','',r.dueDate||''))}</div><div class="fr">${sf}${stt}</div>${bot}<button class="btn-sv" onclick="saveRec('other')">Save</button>`;
+  return '';
+}
+function autoCT(){const ye=v('f_ye'),h=document.getElementById('ctH');if(h&&ye)h.textContent='📅 Filing due: '+getCTDue(ye);}
+
+function saveRec(store){
+  const custId=v('f_cu');if(!custId){alert('Select a customer.');return;}
+  const isRecur=document.getElementById('wt_rc')&&document.getElementById('wt_rc').checked;
+  const mo=v('f_wmo')||S.selectedMonth;
+
+  const baseFields={customerId:custId,fees:num('f_fe'),status:v('f_st')||'Active',amountCollected:num('f_co'),notes:v('f_no'),workMonth:mo};
+  if(store==='accounting')Object.assign(baseFields,{frequency:v('f_fr'),period:v('f_pe'),dueDate:v('f_dd'),completedMonth:baseFields.status==='Completed'?mo:null});
+  else if(store==='vat'){const q=v('f_vq');Object.assign(baseFields,{subtype:eSubtype,vatPeriod:q,filingDue:q?getVatDue(q):v('f_dd'),regDate:v('f_rd'),deregDate:v('f_dd2'),completedMonth:baseFields.status==='Completed'?mo:null});if(!baseFields.filingDue)baseFields.filingDue=v('f_dd');}
+  else if(store==='corporateTax'){const ye=v('f_ye');Object.assign(baseFields,{subtype:eSubtype,taxYear:v('f_ty'),yearEnd:ye,filingDue:ye?getCTDue(ye):v('f_dd'),regDate:v('f_rd'),deregDate:v('f_dd2'),completedMonth:baseFields.status==='Completed'?mo:null});if(!baseFields.filingDue)baseFields.filingDue=v('f_dd');}
+  else if(store==='audit')Object.assign(baseFields,{reportType:v('f_rt'),period:v('f_pe'),dueDate:v('f_dd'),completedMonth:baseFields.status==='Completed'?mo:null});
+  else if(store==='other')Object.assign(baseFields,{workType:v('f_wt'),period:v('f_pe'),dueDate:v('f_dd'),completedMonth:baseFields.status==='Completed'?mo:null});
+
+  if(isRecur&&!eId){
+    // Save as recurring template
+    const t={id:uid(),store,...baseFields,active:true,skippedMonths:[],_isTemplate:true};
+    S.recurringTemplates.push(t);
+    // Also create an instance for this month if status is completed
+    if(baseFields.status==='Completed'){
+      S[store].push({...baseFields,id:uid(),recurTemplateId:t.id,payments:[]});
+    }
+  } else {
+    const existing=eId?S[store].find(r=>r.id===eId):null;
+    const rec={...baseFields,id:eId||uid(),payments:existing?existing.payments||[]:[]};
+    if(eId)S[store]=S[store].map(r=>r.id===eId?rec:r);else S[store].push(rec);
+  }
+  closeModal();renderAll();
+}
+
+// ═══════════════════════════════════════════════════════
+// RECURRING MASTER MANAGEMENT
+// ═══════════════════════════════════════════════════════
+function renderRecurringMaster(store,color){
+  const templates=S.recurringTemplates.filter(t=>t.store===store);
+  if(!templates.length)return '';
+  const cards=templates.map(t=>{
+    const skippedThis=(t.skippedMonths||[]).includes(S.selectedMonth);
+    return `<div class="recur-card${t.active?'':' inactive'}">
+      <div class="recur-top">
+        <div>
+          <div class="recur-name">${esc(custName(t.customerId))}</div>
+          <div class="recur-meta">${esc(t.frequency||'Monthly')} · AED ${fmt(t.fees)} · ${t.period||t.workType||t.reportType||'—'}</div>
+        </div>
+        <span class="recur-tag" style="background:${color}18;color:${color}">↻ Recurring</span>
+      </div>
+      <div class="recur-actions">
+        ${skippedThis
+          ?`<button class="bsm b-dn" onclick="unskipRecurMonth('${t.id}','${S.selectedMonth}')">✓ Unskip ${ymShort(S.selectedMonth)}</button>`
+          :`<button class="bsm b-sk" onclick="skipRecurMonth('${t.id}','${S.selectedMonth}')">Skip ${ymShort(S.selectedMonth)}</button>`
+        }
+        <button class="bsm b-dl" onclick="cancelRecurring('${t.id}')">Cancel Recurring</button>
+      </div>
+      ${(t.skippedMonths||[]).length?`<div style="font-size:10px;color:#64748b;margin-top:4px">Skipped: ${t.skippedMonths.map(ymShort).join(', ')}</div>`:''}
+    </div>`;
+  }).join('');
+  return `<div class="sh" style="color:${color}">↻ Recurring Templates — ${templates.length} active</div>${cards}`;
+}
+
+// ═══════════════════════════════════════════════════════
+// DUE CLIENT LIST
+// ═══════════════════════════════════════════════════════
+function dueClientList(store,ym,color){
+  const dueDateField=store==='vat'||store==='corporateTax'?'filingDue':'dueDate';
+  const dueMo=S[store].filter(r=>{const dd=r[dueDateField]||r.dueDate||r.regDate||'';return dd.slice(0,7)===ym;});
+  if(!dueMo.length)return `<div class="due-sect"><div class="due-hd" style="color:${color}">Clients Due This Month</div><div style="text-align:center;padding:16px;color:#94a3b8;font-size:12px;background:#fff;border-radius:9px;border:1.5px solid var(--border)">No deadlines in ${ymLbl(ym)}</div></div>`;
+  const items=dueMo.map(r=>{
+    const dd=r[dueDateField]||r.dueDate||r.regDate||'';
+    const d=daysTo(dd);
+    let cls='ok';
+    if(r.status==='Completed')cls='dn';
+    else if(d!==null&&d<0)cls='ov';
+    else if(d!==null&&d<=7)cls='sn';
+    const period=r.vatPeriod||r.period||r.taxYear||r.workType||r.reportType||'—';
+    return `<div class="due-card ${cls}">
+      <div class="dc-left">
+        <div class="dc-name">${esc(custName(r.customerId))}</div>
+        <div class="dc-per">${esc(period)}${r.subtype?` · ${esc(r.subtype)}`:''}</div>
+      </div>
+      <div class="dc-right">
+        <div class="dc-date">${dd||'—'} ${dueBadge(dd)}</div>
+        <div class="dc-fee">AED ${fmt(r.fees)}</div>
+        ${r.status==='Completed'?`<div style="margin-top:2px">${sBadge('Completed')}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+  const tot=dueMo.reduce((a,r)=>a+Number(r.fees||0),0);
+  const done=dueMo.filter(r=>r.status==='Completed').length;
+  return `<div class="due-sect"><div class="due-hd" style="color:${color}">Clients Due This Month <span style="font-weight:400;color:#94a3b8">${dueMo.length} client${dueMo.length!==1?'s':''} · AED ${fmt(tot)} · ${done} filed</span></div>${items}</div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// UI COMPONENTS
+// ═══════════════════════════════════════════════════════
+function moStrip(){
+  return `<div class="mo-strip">
+    <div><div class="mo-lbl">Period</div><div class="mo-name">${ymLbl(S.selectedMonth)}</div></div>
+    <div class="mo-btns"><button class="mbn" onclick="shiftMo(-1)">‹</button><button class="mbn" onclick="shiftMo(0)">Now</button><button class="mbn" onclick="shiftMo(1)">›</button></div>
+  </div>`;
+}
+function miniDash(store){
+  const st=calcStatsMo(store,S.selectedMonth);
+  const cards=[
+    {l:'Records',v:st.total,s:'incl. recurring',bg:'#eff6ff',c:'#1e3a8a'},
+    {l:'Completed',v:st.completed,s:'done',bg:'#f0fdf4',c:'#166534'},
+    {l:'Pending',v:st.pending,s:'in progress',bg:'#fef9c3',c:'#854d0e'},
+    {l:'Billed',v:fmt(st.due),s:'completed fees',bg:'#fdf2f8',c:'#9d174d'},
+    {l:'Collected',v:fmt(st.coll),s:'received',bg:'#f0fdf4',c:'#0f766e'},
+    {l:'Outstanding',v:fmt(st.out),s:'balance',bg:'#fff1f2',c:'#be123c'},
+  ];
+  return `<div class="mini-dash">${cards.map(c=>`<div class="mc" style="background:${c.bg};border-color:${c.c}22"><div class="mc-lbl" style="color:${c.c}">${c.l}</div><div class="mc-val" style="color:${c.c}">${c.v}</div><div class="mc-sub" style="color:${c.c}">${c.s}</div></div>`).join('')}</div>`;
+}
+function topBar(title,pill,ps,btns){
+  return `<div class="topbar"><div class="topbar-l"><span class="ttl">${title}</span><span class="pill" style="${ps}">${pill}</span></div><div class="topbar-r">${btns}</div></div>`;
+}
+function tableWrap(cols,rows,foot=''){
+  const body=rows.length?rows.join(''):`<tr class="er"><td colspan="${cols.length}">No records for ${ymLbl(S.selectedMonth)}</td></tr>`;
+  // cols can be strings; if they contain col-hide span, apply class to th too
+  const thCells=cols.map(c=>{
+    const hide=String(c).includes('col-hide');
+    return `<th${hide?' class="col-hide"':''}>${c.replace(/<span class="col-hide">|<\/span>/g,'')}</th>`;
+  }).join('');
+  return `<div class="tw"><table><thead><tr>${thCells}</tr></thead><tbody>${body}</tbody>${foot?`<tfoot><tr>${foot}</tr></tfoot>`:''}</table></div>`;
+}
+
+function actCell(store,r){
+  if(r._isVirtual){
+    const ym=r.workMonth;
+    const tid=r.recurTemplateId||r.id.replace('virt_','').split('_')[0];
+    return `<div style="display:flex;gap:3px;flex-wrap:wrap">
+      <button class="bsm b-dn" onclick="markDone('${store}','${r.id}',true,'${tid}','${ym}')">✔ Done</button>
+      <button class="bsm b-sk" onclick="skipRecurMonth('${tid}','${ym}')">Skip</button>
+    </div>`;
+  }
+  const canDone=r.status!=='Completed';
+  const canColl=r.status==='Completed'&&(Number(r.fees||0)-Number(r.amountCollected||0))>0;
+  const isRecur=!!r.recurTemplateId;
+  return `<div style="display:flex;gap:3px;flex-wrap:wrap">
+    ${canDone?`<button class="bsm b-dn" onclick="markDone('${store}','${r.id}',false,'','')">✔</button>`:''}
+    ${canColl?`<button class="bsm b-cl" onclick="openColl('${store}','${r.id}')">$</button>`:''}
+    <button class="bsm b-ed" onclick="openEdit('${store}','${r.id}')">Edit</button>
+    <button class="bsm b-dl" onclick="delRec('${store}','${r.id}')">✕</button>
+  </div>`;
+}
+function recurTypeBadge(r){
+  if(r._isVirtual||r.recurTemplateId)return `<span class="recur-tag" style="background:#ede9fe;color:#4c1d95">↻</span> `;
+  return `<span class="recur-tag" style="background:#f0f9ff;color:#0369a1">⊙</span> `;
+}
+
+// ═══════════════════════════════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════════════════════════════
+function renderDashboard(){
+  const ym=S.selectedMonth;
+  const ob=calcOpeningBal(ym),billed=calcBilledThisMo(ym),totalDue=ob+billed;
+  const allColl=calcAllCollUpTo(ym),thisColl=calcThisMoColl(ym),closing=Math.max(0,totalDue-allColl);
+
+  // Count all records including virtual recurring
+  const totR=STORES.reduce((a,s)=>a+getRecordsForMonth(s,ym).length,0);
+  const totD=STORES.reduce((a,s)=>a+getRecordsForMonth(s,ym).filter(r=>r.status==='Completed').length,0);
+  const totPend=totR-totD;
+  const recurCount=STORES.reduce((a,s)=>a+getRecurringForMonth(ym).filter(t=>t.store===s).length,0);
+
+  const flowHTML=`<div class="flow-wrap">
+    <div class="flow-row flow-row-1">
+      <div class="fc" style="background:#ecfeff;border-color:#0e749022"><div class="fc-op">+</div><div class="fc-lbl" style="color:#0e7490">Opening Balance</div><div class="fc-val" style="color:#0e7490">${fmt(ob)}</div><div class="fc-sub" style="color:#0e7490">prior months</div></div>
+      <div class="fc" style="background:#f0fdf4;border-color:#16653422"><div class="fc-op">=</div><div class="fc-lbl" style="color:#166534">Billed This Month</div><div class="fc-val" style="color:#166534">${fmt(billed)}</div><div class="fc-sub" style="color:#166534">completed</div></div>
+      <div class="fc" style="background:#fffbeb;border-color:#b4530922"><div class="fc-lbl" style="color:#854d0e">Total Receivable</div><div class="fc-val" style="color:#854d0e">${fmt(totalDue)}</div><div class="fc-sub" style="color:#854d0e">gross due</div></div>
+    </div>
+    <div class="flow-row flow-row-2">
+      <div class="fc" style="background:#f0fdf4;border-color:#0f766e22"><div class="fc-op">=</div><div class="fc-lbl" style="color:#0f766e">Collected</div><div class="fc-val" style="color:#0f766e">${fmt(allColl)}</div><div class="fc-sub" style="color:#0f766e">all receipts</div></div>
+      <div class="fc" style="background:#fff1f2;border-color:#be123c22"><div class="fc-lbl" style="color:#be123c">Outstanding</div><div class="fc-val" style="color:#be123c">${fmt(closing)}</div><div class="fc-sub" style="color:#be123c">to collect</div></div>
+    </div>
+  </div>`;
+
+  const statsHTML=`<div class="stats-grid">
+    ${[
+      {l:'Customers',v:S.customers.length,s:'total',bg:'#ecfeff',c:'#0e7490'},
+      {l:'All Records',v:totR,s:`${recurCount} recurring`,bg:'#eff6ff',c:'#1e3a8a'},
+      {l:'Completed',v:totD,s:'done',bg:'#f0fdf4',c:'#166534'},
+      {l:'Pending',v:totPend,s:'incl. recurring',bg:'#fef9c3',c:'#854d0e'},
+      {l:'Collected',v:fmt(thisColl),s:'this month',bg:'#f0fdf4',c:'#0f766e'},
+      {l:'Outstanding',v:fmt(closing),s:'to collect',bg:'#fff1f2',c:'#be123c'},
+    ].map(c=>`<div class="sc" style="background:${c.bg};border-color:${c.c}22"><div class="sc-lbl" style="color:${c.c}">${c.l}</div><div class="sc-val" style="color:${c.c}">${c.v}</div><div class="sc-sub" style="color:${c.c}">${c.s}</div></div>`).join('')}
+  </div>`;
+
+  const SL={accounting:'Accounting',vat:'VAT',corporateTax:'Corp Tax',audit:'Audit',other:'Other'};
+  const SC={accounting:'#1d4ed8',vat:'#6d28d9',corporateTax:'#b45309',audit:'#0f766e',other:'#9d174d'};
+  const brows=STORES.map(s=>{
+    const m=getRecordsForMonth(s,ym),d=m.filter(r=>r.status==='Completed');
+    const due=d.reduce((a,r)=>a+Number(r.fees||0),0),coll=S[s].filter(r=>recYM(r)===ym||r.workMonth===ym).reduce((a,r)=>a+Number(r.amountCollected||0),0);
+    const recN=m.filter(r=>r._isVirtual||r.recurTemplateId).length;
+    return `<tr>
+      <td><span style="width:7px;height:7px;border-radius:50%;background:${SC[s]};display:inline-block;margin-right:5px;vertical-align:middle"></span><b>${SL[s]}</b>${recN?`<span style="font-size:9px;color:#6d28d9;margin-left:4px">↻${recN}</span>`:''}</td>
+      <td style="text-align:center">${m.length}</td>
+      <td style="text-align:center;color:#166534;font-weight:700">${d.length}</td>
+      <td style="text-align:right;color:#0f766e;font-weight:700">${fmt(due)}</td>
+      <td style="text-align:right;color:#be123c;font-weight:700">${fmt(due-coll)}</td>
+    </tr>`;
+  }).join('');
+  const totBilled=STORES.reduce((a,s)=>a+getRecordsForMonth(s,ym).filter(r=>r.status==='Completed').reduce((b,r)=>b+Number(r.fees||0),0),0);
+  const totCollDash=STORES.reduce((a,s)=>a+S[s].filter(r=>recYM(r)===ym||r.workMonth===ym).reduce((b,r)=>b+Number(r.amountCollected||0),0),0);
+
+  // Pending recurring list
+  const virtPending=STORES.flatMap(s=>getRecurringForMonth(ym).filter(t=>t.store===s));
+  const pendingRecurHTML=virtPending.length?`
+    <div class="sh">↻ Recurring Work Pending This Month</div>
+    <div style="display:grid;gap:7px">
+    ${virtPending.map(r=>`<div style="background:#faf5ff;border:1.5px solid #c4b5fd;border-radius:8px;padding:9px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <div>
+        <div style="font-weight:700;font-size:12px;color:#1e293b">${esc(custName(r.customerId))}</div>
+        <div style="font-size:10px;color:#6d28d9">${r.store==='accounting'?'Accounting':r.store==='vat'?'VAT':r.store==='corporateTax'?'Corp Tax':r.store==='audit'?'Audit':'Other'} · AED ${fmt(r.fees)}</div>
+      </div>
+      <div style="display:flex;gap:5px;flex-shrink:0">
+        <button class="bsm b-dn" onclick="markDone('${r.store}','${r.id}',true,'${r.recurTemplateId||r.id.replace('virt_','').replace('_'+ym,'')}','${ym}')">✔ Done</button>
+        <button class="bsm b-sk" onclick="skipRecurMonth('${r.recurTemplateId||r.id.replace('virt_','').replace('_'+ym,'')}','${ym}')">Skip</button>
+      </div>
+    </div>`).join('')}
+    </div>`:''
+
+  return `${moStrip()}${flowHTML}${statsHTML}
+  <div class="sh">Breakdown — ${ymShort(ym)}</div>
+  <div class="tw" style="margin-bottom:14px"><table>
+    <thead><tr><th>Service</th><th style="text-align:center">Rec</th><th style="text-align:center">Done</th><th style="text-align:right">Billed</th><th style="text-align:right">Due</th></tr></thead>
+    <tbody>${brows}</tbody>
+    <tfoot><tr><td><b>Total</b></td><td style="text-align:center"><b>${totR}</b></td><td style="text-align:center;color:#166534"><b>${totD}</b></td><td style="text-align:right;color:#0f766e"><b>${fmt(totBilled)}</b></td><td style="text-align:right;color:#be123c"><b>${fmt(totBilled-totCollDash)}</b></td></tr></tfoot>
+  </table></div>
+  ${pendingRecurHTML}`;
+}
+
+// ═══════════════════════════════════════════════════════
+// CUSTOMERS
+// ═══════════════════════════════════════════════════════
+function renderCustomers(){
+  const outMap=calcOutPerCust(S.selectedMonth);
+  const cards=S.customers.length===0
+    ?`<div style="text-align:center;padding:36px;color:#94a3b8;font-size:13px;background:#fff;border-radius:9px;border:1.5px solid var(--border)">No customers yet</div>`
+    :S.customers.map(c=>{
+      const out=(outMap[c.id]||{}).outstanding||0;
+      const tw2=STORES.reduce((a,s)=>a+S[s].filter(r=>r.customerId===c.id).length,0);
+      const rc=S.recurringTemplates.filter(t=>t.customerId===c.id&&t.active).length;
+      const tags=c.works.map(w=>`<span class="wtag" style="background:${(WC[w]||{bg:'#f1f5f9'}).bg};color:${(WC[w]||{c:'#475569'}).c}">${w}</span>`).join('');
+      return `<div class="cc">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px">
+          <div class="cn">${esc(c.name)}</div>
+          ${out>0?`<span style="background:#fee2e2;color:#be123c;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700">AED ${fmt(out)}</span>`:`<span style="background:#d1fae5;color:#065f46;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700">Clear</span>`}
+        </div>
+        <div class="cm">${c.trn?`TRN: ${esc(c.trn)} · `:''}${c.mobile?`📱 ${esc(c.mobile)} · `:''}${tw2} record${tw2!==1?'s':''}${rc?` · <span style="color:#6d28d9">↻${rc} recurring</span>`:''}</div>
+        <div class="cw">${tags||'<span style="color:#94a3b8;font-size:11px">No works</span>'}</div>
+        <div class="ca"><button class="bsm b-ed" onclick="openEditCust('${c.id}')">Edit</button><button class="bsm b-dl" onclick="delCust('${c.id}')">Delete</button></div>
+      </div>`;
+    }).join('');
+  return `${topBar('Customers',`${S.customers.length} clients`,'background:#ecfeff;color:#0e7490',`<button class="btn btn-cy" onclick="openAddCust()">+ New</button>`)}<div class="cg">${cards}</div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// SERVICE TAB COMMON ROW BUILDER
+// ═══════════════════════════════════════════════════════
+function cmRows(store,recs,xFn){
+  // xFn returns: {type, period, due, dueBadgeStr}
+  return recs.map(r=>{
+    const virtStyle=r._isVirtual?'opacity:.8;background:#faf5ff;':'';
+    const x=xFn(r); // {type,period,due,badge}
+    const subParts=[];
+    if(x.type)subParts.push(`<span>${x.type}</span>`);
+    if(x.period)subParts.push(`<span>${esc(x.period)}</span>`);
+    if(x.due)subParts.push(`<span>${esc(x.due)}${x.badge||''}</span>`);
+    const subHtml=subParts.length?`<div class="cell-sub">${subParts.join('')}</div>`:'';
+    return `<tr style="${virtStyle}">
+      <td>
+        ${recurTypeBadge(r)}<b style="color:#1e293b">${esc(custName(r.customerId))}</b>
+        ${subHtml}
+      </td>
+      <td class="col-hide">${x.type||''}</td>
+      <td class="col-hide">${esc(x.period||'—')}</td>
+      <td class="col-hide">${esc(x.due||'—')}${x.badge||''}</td>
+      <td>${sBadge(r._isVirtual?'Pending':r.status)}</td>
+      <td><b style="color:#0f766e">${fmt(r.fees)}</b></td>
+      <td class="col-hide">${pBadge(r)}</td>
+      <td>${actCell(store,r)}</td>
+    </tr>`;
+  });
+}
+
+function renderAccounting(){
+  const ym=S.selectedMonth,recs=getRecordsForMonth('accounting',ym);
+  const rows=cmRows('accounting',recs,r=>({
+    type:`<span class="tb" style="background:#eff6ff;color:#1d4ed8">${esc(r.frequency||'Monthly')}</span>`,
+    period:r.period||'—',
+    due:r.dueDate||'—',
+    badge:dueBadge(r.dueDate)
+  }));
+  const tot=recs.filter(r=>r.status==='Completed').reduce((a,r)=>a+Number(r.fees||0),0);
+  const cols=['Customer','<span class="col-hide">Freq</span>','<span class="col-hide">Period</span>','<span class="col-hide">Due</span>','Status','Fees','<span class="col-hide">Pay</span>','Actions'];
+  return moStrip()+miniDash('accounting')+topBar('Accounting',`${recs.length} records`,'background:#eff6ff;color:#1d4ed8',`<button class="btn btn-nv" onclick="openAdd('accounting')">+ Add</button>`)+tableWrap(cols,rows,`<td colspan="2">Total Billed</td><td class="col-hide"></td><td class="col-hide"></td><td style="color:#0f766e">${fmt(tot)}</td><td class="col-hide"></td><td></td>`)+renderRecurringMaster('accounting','#1d4ed8');
+}
+function renderVAT(){
+  const ym=S.selectedMonth,recs=getRecordsForMonth('vat',ym);
+  const rows=cmRows('vat',recs,r=>({
+    type:`<span class="tb" style="background:#faf5ff;color:#7c3aed">${esc(r.subtype||'Filing')}</span>`,
+    period:r.vatPeriod||'—',
+    due:r.filingDue||r.regDate||r.deregDate||'—',
+    badge:dueBadge(r.filingDue)
+  }));
+  const cols=['Customer','<span class="col-hide">Type</span>','<span class="col-hide">Quarter</span>','<span class="col-hide">Due</span>','Status','Fees','<span class="col-hide">Pay</span>','Actions'];
+  return moStrip()+miniDash('vat')+topBar('VAT',`${recs.length} records`,'background:#faf5ff;color:#7c3aed',`<button class="btn btn-tl" onclick="openAdd('vat','Registration')">+ Reg</button><button class="btn btn-bl" onclick="openAdd('vat','Filing')">+ Filing</button><button class="btn btn-am" onclick="openAdd('vat','De-registration')">+ De-reg</button>`)+tableWrap(cols,rows)+renderRecurringMaster('vat','#6d28d9')+dueClientList('vat',ym,'#6d28d9');
+}
+function renderCorporateTax(){
+  const ym=S.selectedMonth,recs=getRecordsForMonth('corporateTax',ym);
+  const rows=recs.map(r=>{
+    const vs=r._isVirtual?'opacity:.8;background:#fef9c3;':'';
+    const subParts=[];
+    if(r.subtype)subParts.push(`<span><span class="tb" style="background:#fefce8;color:#854d0e">${esc(r.subtype)}</span></span>`);
+    if(r.taxYear)subParts.push(`<span>Year: ${esc(r.taxYear)}</span>`);
+    if(r.yearEnd)subParts.push(`<span>FY: ${esc(r.yearEnd)}</span>`);
+    if(r.filingDue)subParts.push(`<span>${esc(r.filingDue)}${dueBadge(r.filingDue)}</span>`);
+    const subHtml=subParts.length?`<div class="cell-sub">${subParts.join('')}</div>`:'';
+    return `<tr style="${vs}">
+      <td>${recurTypeBadge(r)}<b style="color:#1e293b">${esc(custName(r.customerId))}</b>${subHtml}</td>
+      <td class="col-hide"><span class="tb" style="background:#fefce8;color:#854d0e">${esc(r.subtype||'Filing')}</span></td>
+      <td class="col-hide">${esc(r.taxYear||'—')}</td>
+      <td class="col-hide">${esc(r.yearEnd||'—')}</td>
+      <td class="col-hide">${esc(r.filingDue||'—')} ${dueBadge(r.filingDue)}</td>
+      <td>${sBadge(r._isVirtual?'Pending':r.status)}</td>
+      <td><b style="color:#0f766e">${fmt(r.fees)}</b></td>
+      <td class="col-hide">${pBadge(r)}</td>
+      <td>${actCell('corporateTax',r)}</td>
+    </tr>`;
+  });
+  const cols=['Customer','<span class="col-hide">Type</span>','<span class="col-hide">Year</span>','<span class="col-hide">FY End</span>','<span class="col-hide">Filing Due</span>','Status','Fees','<span class="col-hide">Pay</span>','Actions'];
+  return moStrip()+miniDash('corporateTax')+topBar('Corporate Tax',`${recs.length} records`,'background:#fefce8;color:#854d0e',`<button class="btn btn-tl" onclick="openAdd('corporateTax','Registration')">+ Reg</button><button class="btn btn-bl" onclick="openAdd('corporateTax','Filing')">+ Filing</button><button class="btn btn-am" onclick="openAdd('corporateTax','De-registration')">+ De-reg</button>`)+tableWrap(cols,rows)+renderRecurringMaster('corporateTax','#b45309')+dueClientList('corporateTax',ym,'#b45309');
+}
+function renderAudit(){
+  const ym=S.selectedMonth,recs=getRecordsForMonth('audit',ym);
+  const rows=cmRows('audit',recs,r=>({
+    type:`<span class="tb" style="background:#f0fdf4;color:#166534">${esc(r.reportType||'—')}</span>`,
+    period:r.period||'—',
+    due:r.dueDate||'—',
+    badge:dueBadge(r.dueDate)
+  }));
+  const cols=['Customer','<span class="col-hide">Type</span>','<span class="col-hide">Period</span>','<span class="col-hide">Due</span>','Status','Fees','<span class="col-hide">Pay</span>','Actions'];
+  return moStrip()+miniDash('audit')+topBar('Audit & Reports',`${recs.length} records`,'background:#f0fdf4;color:#166534',`<button class="btn btn-nv" onclick="openAdd('audit')">+ Add</button>`)+tableWrap(cols,rows)+renderRecurringMaster('audit','#0f766e')+dueClientList('audit',ym,'#0f766e');
+}
+function renderOther(){
+  const ym=S.selectedMonth,recs=getRecordsForMonth('other',ym);
+  const rows=cmRows('other',recs,r=>({
+    type:`<span class="tb" style="background:#fdf2f8;color:#9d174d">${esc(r.workType||'—')}</span>`,
+    period:r.period||'—',
+    due:r.dueDate||'—',
+    badge:dueBadge(r.dueDate)
+  }));
+  const cols=['Customer','<span class="col-hide">Type</span>','<span class="col-hide">Period</span>','<span class="col-hide">Due</span>','Status','Fees','<span class="col-hide">Pay</span>','Actions'];
+  return moStrip()+miniDash('other')+topBar('Other Works',`${recs.length} records`,'background:#fdf2f8;color:#9d174d',`<button class="btn btn-nv" onclick="openAdd('other')">+ Add</button>`)+tableWrap(cols,rows)+renderRecurringMaster('other','#9d174d')+dueClientList('other',ym,'#9d174d');
+}
+
+// ═══════════════════════════════════════════════════════
+// RECEIVABLES
+// ═══════════════════════════════════════════════════════
+function renderReceivables(){
+  const ym=S.selectedMonth;
+  const ob=calcOpeningBal(ym),billed=calcBilledThisMo(ym),totalDue=ob+billed;
+  const allColl=calcAllCollUpTo(ym),closing=Math.max(0,totalDue-allColl);
+  const outMap=calcOutPerCust(ym);
+  const parties=S.customers.map(c=>({c,d:outMap[c.id]||{ob:0,billed:0,totalDue:0,totalColl:0,outstanding:0}})).filter(x=>x.d.totalDue>0).sort((a,b)=>b.d.outstanding-a.d.outstanding);
+  const flowH=`<div class="flow-wrap">
+    <div class="flow-row flow-row-1">
+      <div class="fc" style="background:#ecfeff;border-color:#0e749022"><div class="fc-op">+</div><div class="fc-lbl" style="color:#0e7490">Opening Bal</div><div class="fc-val" style="color:#0e7490">${fmt(ob)}</div><div class="fc-sub" style="color:#0e7490">prior months</div></div>
+      <div class="fc" style="background:#f0fdf4;border-color:#16653422"><div class="fc-op">=</div><div class="fc-lbl" style="color:#166534">Billed</div><div class="fc-val" style="color:#166534">${fmt(billed)}</div><div class="fc-sub" style="color:#166534">this month</div></div>
+      <div class="fc" style="background:#fffbeb;border-color:#b4530922"><div class="fc-lbl" style="color:#854d0e">Total Due</div><div class="fc-val" style="color:#854d0e">${fmt(totalDue)}</div><div class="fc-sub" style="color:#854d0e">gross</div></div>
+    </div>
+    <div class="flow-row flow-row-2">
+      <div class="fc" style="background:#f0fdf4;border-color:#0f766e22"><div class="fc-op">=</div><div class="fc-lbl" style="color:#0f766e">Collected</div><div class="fc-val" style="color:#0f766e">${fmt(allColl)}</div><div class="fc-sub" style="color:#0f766e">all receipts</div></div>
+      <div class="fc" style="background:#fff1f2;border-color:#be123c22"><div class="fc-lbl" style="color:#be123c">Outstanding</div><div class="fc-val" style="color:#be123c">${fmt(closing)}</div><div class="fc-sub" style="color:#be123c">to collect</div></div>
+    </div>
+  </div>`;
+  const pRows=parties.length===0?`<tr class="er"><td colspan="5">No receivables for ${ymLbl(ym)}</td></tr>`:parties.map(({c,d})=>{
+    const clear=d.outstanding<=0;
+    return `<tr class="${clear?'pr-clear':'pr-out'}"><td><b>${esc(c.name)}</b></td><td style="text-align:right;color:#0e7490;font-weight:700">${fmt(d.ob)}</td><td style="text-align:right;color:#166534;font-weight:700">${fmt(d.billed)}</td><td style="text-align:right;color:#854d0e;font-weight:700">${fmt(d.totalDue)}</td><td style="text-align:right">${clear?`<span class="sb" style="background:#d1fae5;color:#065f46;border-color:#6ee7b7">✓ Clear</span>`:`<b style="color:#be123c">${fmt(d.outstanding)}</b>`}</td></tr>`;
+  }).join('');
+  const tob=parties.reduce((a,x)=>a+x.d.ob,0),tbld=parties.reduce((a,x)=>a+x.d.billed,0),tdue=parties.reduce((a,x)=>a+x.d.totalDue,0),tout=parties.reduce((a,x)=>a+Math.max(0,x.d.outstanding),0);
+  const pays=[];
+  STORES.forEach(s=>S[s].forEach(r=>(r.payments||[]).forEach(p=>{if(p.month===ym)pays.push({cust:custName(r.customerId),store:s,amount:p.amount,ref:p.ref});})));
+  const SC2={accounting:'#1d4ed8',vat:'#6d28d9',corporateTax:'#b45309',audit:'#0f766e',other:'#9d174d'};
+  const SN2={accounting:'Acct',vat:'VAT',corporateTax:'CT',audit:'Audit',other:'Other'};
+  const payRows=pays.length===0?`<tr class="er"><td colspan="4">No payments for ${ymLbl(ym)}</td></tr>`:pays.map(p=>`<tr><td><b>${esc(p.cust)}</b></td><td><span class="tb" style="background:#f1f5f9;color:${SC2[p.store]||'#475569'}">${SN2[p.store]||p.store}</span></td><td style="text-align:right;color:#0f766e;font-weight:700">${fmt(p.amount)}</td><td style="color:#64748b">${esc(p.ref||'—')}</td></tr>`).join('');
+  const payTot=pays.reduce((a,p)=>a+Number(p.amount||0),0);
+  return `${moStrip()}${flowH}<div class="sh">Outstanding by Party</div><div class="tw" style="margin-bottom:14px"><table><thead><tr><th>Customer</th><th style="text-align:right">Opening</th><th style="text-align:right">Billed</th><th style="text-align:right">Total Due</th><th style="text-align:right">Outstanding</th></tr></thead><tbody>${pRows}</tbody><tfoot><tr><td><b>Total</b></td><td style="text-align:right;color:#0e7490"><b>${fmt(tob)}</b></td><td style="text-align:right;color:#166534"><b>${fmt(tbld)}</b></td><td style="text-align:right;color:#854d0e"><b>${fmt(tdue)}</b></td><td style="text-align:right;color:#be123c"><b>${fmt(tout)}</b></td></tr></tfoot></table></div><div class="sh">Payment Log — ${ymShort(ym)}</div><div class="tw"><table><thead><tr><th>Customer</th><th>Service</th><th style="text-align:right">Amount</th><th>Ref</th></tr></thead><tbody>${payRows}</tbody>${pays.length?`<tfoot><tr><td colspan="2"><b>Total</b></td><td style="text-align:right;color:#0f766e"><b>${fmt(payTot)}</b></td><td></td></tr></tfoot>`:''}</table></div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// PERFORMANCE ANALYSIS
+// ═══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════
+// INCOME LOG (Performance Analysis)
+// ═══════════════════════════════════════════════════════
+function openAddIncome(){
+  openModal('Log Income Allocation', incomeForm({}));
+}
+function openEditIncome(id){
+  const e=S.incomeLog.find(x=>x.id===id);
+  if(!e)return;
+  openModal('Edit Income Entry', incomeForm(e));
+}
+function incomeForm(e){
+  const cOp=S.customers.map(c=>`<option value="${escA(c.name)}"${c.name===(e.clientName||'')?` selected`:''}>${esc(c.name)}</option>`).join('');
+  return `
+  <div class="fr">
+    ${fl('Client',`<select id="il_cn"><option value="">— select —</option>${cOp}</select>`)}
+    ${fl('Month',`<select id="il_mo">${moOpts(e.month||S.selectedMonth)}</select>`)}
+  </div>
+  ${fl('Description / Work',`<input id="il_de" type="text" placeholder="e.g. Monthly accounting Mar 2025" value="${escA(e.description||'')}"/>`)}
+  ${fl('Total Amount (AED)',`<input id="il_ta" type="number" placeholder="0" value="${escA(e.totalAmount||'')}" oninput="checkSplitTotal()"/>`)}
+  <div style="background:#f8fafc;border-radius:8px;padding:11px 12px;margin-bottom:11px;border:1.5px solid var(--border)">
+    <div style="font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Allocation</div>
+    <div class="fr">
+      ${fl('To H (AED)',`<input id="il_h" type="number" placeholder="0" value="${escA(e.toH||'')}" oninput="checkSplitTotal()"/>`)}
+      ${fl('To Z (AED)',`<input id="il_z" type="number" placeholder="0" value="${escA(e.toZ||'')}" oninput="checkSplitTotal()"/>`)}
+    </div>
+    ${fl('Commission (AED)',`<input id="il_co" type="number" placeholder="0" value="${escA(e.commission||'')}" oninput="checkSplitTotal()"/>`)}
+    <div id="il_check" style="font-size:11px;font-weight:600;margin-top:4px;color:#64748b"></div>
+  </div>
+  ${fl('Notes',`<input id="il_no" type="text" placeholder="Optional" value="${escA(e.notes||'')}"/>`)}
+  <button class="btn-sv" onclick="saveIncome('${e.id||''}')">Save Entry</button>`;
+}
+function checkSplitTotal(){
+  const ta=parseFloat(document.getElementById('il_ta').value)||0;
+  const h=parseFloat(document.getElementById('il_h').value)||0;
+  const z=parseFloat(document.getElementById('il_z').value)||0;
+  const co=parseFloat(document.getElementById('il_co').value)||0;
+  const alloc=h+z+co;
+  const diff=ta-alloc;
+  const el=document.getElementById('il_check');
+  if(!el)return;
+  if(ta===0){el.textContent='';return;}
+  if(Math.abs(diff)<0.01){el.innerHTML='<span style="color:#166534">✓ Fully allocated</span>';}
+  else if(diff>0){el.innerHTML='<span style="color:#b45309">⚠ AED '+fmt(diff)+' unallocated</span>';}
+  else{el.innerHTML='<span style="color:#be123c">⚠ Over-allocated by AED '+fmt(Math.abs(diff))+'</span>';}
+}
+function saveIncome(existingId){
+  const clientName=v('il_cn')||'Unknown';
+  const month=v('il_mo')||S.selectedMonth;
+  const description=v('il_de');
+  const totalAmount=parseFloat(document.getElementById('il_ta').value)||0;
+  const toH=parseFloat(document.getElementById('il_h').value)||0;
+  const toZ=parseFloat(document.getElementById('il_z').value)||0;
+  const commission=parseFloat(document.getElementById('il_co').value)||0;
+  const notes=v('il_no');
+  if(!clientName||totalAmount<=0){alert('Client and amount required.');return;}
+  const entry={id:existingId||uid(),month,clientName,description,totalAmount,toH,toZ,commission,notes};
+  if(existingId){S.incomeLog=S.incomeLog.map(e=>e.id===existingId?entry:e);}
+  else{S.incomeLog.push(entry);}
+  closeModal();renderAll();
+}
+function delIncome(id){if(!confirm('Delete entry?'))return;S.incomeLog=S.incomeLog.filter(e=>e.id!==id);renderAll();}
+
+function renderPerformance(){
+  const ym=S.selectedMonth;
+  const allBilled=STORES.reduce((a,s)=>a+S[s].filter(r=>r.status==='Completed').reduce((b,r)=>b+Number(r.fees||0),0),0);
+  const allColl=STORES.reduce((a,s)=>a+S[s].reduce((b,r)=>b+(r.payments||[]).reduce((c2,p)=>c2+Number(p.amount||0),0),0),0);
+  const thisYear=new Date().getFullYear().toString();
+  const yearBilled=STORES.reduce((a,s)=>a+S[s].filter(r=>r.status==='Completed'&&(recYM(r)||r.workMonth||'').startsWith(thisYear)).reduce((b,r)=>b+Number(r.fees||0),0),0);
+  const moBilled=calcBilledThisMo(ym);
+  const moColl=calcThisMoColl(ym);
+  const moLog=S.incomeLog.filter(e=>e.month===ym);
+  const allLog=S.incomeLog;
+  const logTotH=allLog.reduce((a,e)=>a+Number(e.toH||0),0);
+  const logTotZ=allLog.reduce((a,e)=>a+Number(e.toZ||0),0);
+  const logTotCom=allLog.reduce((a,e)=>a+Number(e.commission||0),0);
+  const logTotAll=logTotH+logTotZ+logTotCom;
+  const moLogH=moLog.reduce((a,e)=>a+Number(e.toH||0),0);
+  const moLogZ=moLog.reduce((a,e)=>a+Number(e.toZ||0),0);
+  const moLogCom=moLog.reduce((a,e)=>a+Number(e.commission||0),0);
+  const pctH=logTotAll>0?((logTotH/logTotAll)*100).toFixed(1):0;
+  const pctZ=logTotAll>0?((logTotZ/logTotAll)*100).toFixed(1):0;
+  const pctCom=logTotAll>0?((logTotCom/logTotAll)*100).toFixed(1):0;
+  const months=[];
+  for(let i=11;i>=0;i--){const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-i);months.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'));}
+  const moData=months.map(m=>({ym:m,billed:calcMonthlyBilled(m)}));
+  const maxBilled=Math.max(...moData.map(x=>x.billed),1);
+  const moRows=moData.map(x=>{
+    const pct=maxBilled>0?(x.billed/maxBilled*100):0;
+    return '<div class="month-perf-row"><span style="min-width:48px;color:#64748b;font-weight:600;font-size:11px">'+ymShort(x.ym)+'</span><div style="flex:1;margin:0 8px"><div class="perf-bar"><div class="perf-bar-fill" style="width:'+pct+'%;background:linear-gradient(90deg,#1d4ed8,#6d28d9)"></div></div></div><span style="color:#0f766e;font-weight:700;min-width:72px;text-align:right;font-size:11px">AED '+fmt(x.billed)+'</span></div>';
+  }).join('');
+  const logRows=moLog.length===0
+    ?'<tr class="er"><td colspan="7">No entries for '+ymLbl(ym)+' — click + Log Income Entry above</td></tr>'
+    :moLog.map(e=>{
+      const alloc=Number(e.toH||0)+Number(e.toZ||0)+Number(e.commission||0);
+      const diff=Number(e.totalAmount||0)-alloc;
+      const diffHtml=Math.abs(diff)<0.01?'<span style="color:#166534;font-size:10px">✓</span>':'<span style="color:#be123c;font-size:10px">'+(diff>0?'+':'')+fmt(diff)+'</span>';
+      const allocSub='<div class="cell-sub"><span style="color:#0e7490">H:'+fmt(e.toH)+'</span><span style="color:#1d4ed8">Z:'+fmt(e.toZ)+'</span><span style="color:#9d174d">C:'+fmt(e.commission)+'</span></div>';
+      return '<tr>'
+        +'<td><b style="color:#1e293b">'+esc(e.clientName)+'</b>'+(e.description?'<br><span style="font-size:10px;color:#64748b">'+esc(e.description)+'</span>':'')+'</td>'
+        +'<td style="text-align:right;font-weight:700;color:#0f766e"><b>'+fmt(e.totalAmount)+'</b>'+allocSub+'</td>'
+        +'<td class="col-hide" style="text-align:right;color:#0e7490;font-weight:600">'+fmt(e.toH)+'</td>'
+        +'<td class="col-hide" style="text-align:right;color:#1d4ed8;font-weight:600">'+fmt(e.toZ)+'</td>'
+        +'<td class="col-hide" style="text-align:right;color:#9d174d;font-weight:600">'+fmt(e.commission)+'</td>'
+        +'<td style="text-align:center">'+diffHtml+'</td>'
+        +'<td><div style="display:flex;gap:4px"><button class="bsm b-ed" onclick="openEditIncome(\''+e.id+'\')">Edit</button><button class="bsm b-dl" onclick="delIncome(\''+e.id+'\')">✕</button></div></td>'
+        +'</tr>';
+    }).join('');
+  const clientMap={};
+  allLog.forEach(e=>{
+    if(!clientMap[e.clientName])clientMap[e.clientName]={toH:0,toZ:0,commission:0,total:0,entries:0};
+    clientMap[e.clientName].toH+=Number(e.toH||0);
+    clientMap[e.clientName].toZ+=Number(e.toZ||0);
+    clientMap[e.clientName].commission+=Number(e.commission||0);
+    clientMap[e.clientName].total+=Number(e.totalAmount||0);
+    clientMap[e.clientName].entries++;
+  });
+  const clientRows=Object.entries(clientMap).sort((a,b)=>b[1].total-a[1].total).map(([name,d])=>{
+    const pH=d.total>0?((d.toH/d.total)*100).toFixed(0):0;
+    const pZ=d.total>0?((d.toZ/d.total)*100).toFixed(0):0;
+    const pC=d.total>0?((d.commission/d.total)*100).toFixed(0):0;
+    return '<tr><td><b>'+esc(name)+'</b><br><span style="font-size:10px;color:#94a3b8">'+d.entries+' entr'+(d.entries===1?'y':'ies')+'</span></td><td style="text-align:right;font-weight:700;color:#0f766e">AED '+fmt(d.total)+'</td><td style="text-align:right;color:#0e7490">AED '+fmt(d.toH)+'<br><span style="font-size:10px">'+pH+'%</span></td><td style="text-align:right;color:#1d4ed8">AED '+fmt(d.toZ)+'<br><span style="font-size:10px">'+pZ+'%</span></td><td style="text-align:right;color:#9d174d">AED '+fmt(d.commission)+'<br><span style="font-size:10px">'+pC+'%</span></td></tr>';
+  }).join('');
+
+  return moStrip()+
+  '<div class="stats-grid" style="margin-bottom:14px">'+
+  [{l:'All-Time Billed',v:'AED '+fmt(allBilled),s:'completed',bg:'#eff6ff',c:'#1e3a8a'},{l:'All-Time Collected',v:'AED '+fmt(allColl),s:'receipts',bg:'#f0fdf4',c:'#166534'},{l:thisYear+' Billed',v:'AED '+fmt(yearBilled),s:'this year',bg:'#fef9c3',c:'#854d0e'},{l:'This Month Billed',v:'AED '+fmt(moBilled),s:ymShort(ym),bg:'#fdf2f8',c:'#9d174d'},{l:'This Month Collected',v:'AED '+fmt(moColl),s:'received',bg:'#f0fdf4',c:'#0f766e'},{l:'Log Entries',v:allLog.length,s:'total logged',bg:'#ecfeff',c:'#0e7490'}].map(c=>'<div class="sc" style="background:'+c.bg+';border-color:'+c.c+'22"><div class="sc-lbl" style="color:'+c.c+'">'+c.l+'</div><div class="sc-val" style="color:'+c.c+';font-size:13px">'+c.v+'</div><div class="sc-sub" style="color:'+c.c+'">'+c.s+'</div></div>').join('')+
+  '</div>'+
+  '<div class="sh">💰 All-Time Allocation Summary</div>'+
+  '<div class="stats-grid" style="margin-bottom:14px">'+
+  [{l:'Total to H',v:'AED '+fmt(logTotH),s:pctH+'% of logged',bg:'#ecfeff',c:'#0e7490'},{l:'Total to Z',v:'AED '+fmt(logTotZ),s:pctZ+'% of logged',bg:'#eff6ff',c:'#1d4ed8'},{l:'Commission',v:'AED '+fmt(logTotCom),s:pctCom+'% of logged',bg:'#fdf2f8',c:'#9d174d'}].map(c=>'<div class="sc" style="background:'+c.bg+';border-color:'+c.c+'22"><div class="sc-lbl" style="color:'+c.c+'">'+c.l+'</div><div class="sc-val" style="color:'+c.c+'">'+c.v+'</div><div class="sc-sub" style="color:'+c.c+'">'+c.s+'</div></div>').join('')+
+  '</div>'+
+  '<div class="sh">📋 Income Log — '+ymLbl(ym)+' <span style="font-size:11px;font-weight:500;color:#64748b;font-family:\'DM Sans\',sans-serif">H: AED '+fmt(moLogH)+' · Z: AED '+fmt(moLogZ)+' · Commission: AED '+fmt(moLogCom)+'</span></div>'+
+  '<div style="margin-bottom:10px"><button class="btn btn-nv" onclick="openAddIncome()">+ Log Income Entry</button></div>'+
+  '<div class="tw" style="margin-bottom:16px"><table><thead><tr><th>Client</th><th style="text-align:right">Total</th><th class="col-hide" style="text-align:right">H</th><th class="col-hide" style="text-align:right">Z</th><th class="col-hide" style="text-align:right">Commission</th><th style="text-align:center">✓</th><th>Actions</th></tr></thead><tbody>'+logRows+'</tbody>'+
+  (moLog.length?'<tfoot><tr><td><b>Total</b></td><td style="text-align:right;color:#0f766e"><b>'+fmt(moLog.reduce((a,e)=>a+Number(e.totalAmount||0),0))+'</b></td><td class="col-hide" style="text-align:right;color:#0e7490"><b>'+fmt(moLogH)+'</b></td><td class="col-hide" style="text-align:right;color:#1d4ed8"><b>'+fmt(moLogZ)+'</b></td><td class="col-hide" style="text-align:right;color:#9d174d"><b>'+fmt(moLogCom)+'</b></td><td></td><td></td></tr></tfoot>':'')+
+  '</table></div>'+
+  '<div class="sh">👤 By Client — All Time</div>'+
+  (clientRows?'<div class="tw" style="margin-bottom:16px"><table><thead><tr><th>Client</th><th style="text-align:right">Total</th><th style="text-align:right">H</th><th style="text-align:right">Z</th><th style="text-align:right">Commission</th></tr></thead><tbody>'+clientRows+'</tbody><tfoot><tr><td><b>All Clients</b></td><td style="text-align:right;color:#0f766e"><b>AED '+fmt(logTotAll)+'</b></td><td style="text-align:right;color:#0e7490"><b>AED '+fmt(logTotH)+'</b></td><td style="text-align:right;color:#1d4ed8"><b>AED '+fmt(logTotZ)+'</b></td><td style="text-align:right;color:#9d174d"><b>AED '+fmt(logTotCom)+'</b></td></tr></tfoot></table></div>':'<div style="text-align:center;padding:18px;color:#94a3b8;font-size:12px;background:#fff;border-radius:9px;border:1.5px solid var(--border);margin-bottom:16px">No log entries yet.</div>')+
+  '<div class="sh">📈 Monthly Billing — Last 12 Months</div>'+
+  '<div style="background:#fff;border-radius:10px;border:1.5px solid var(--border);padding:12px 14px;margin-bottom:14px">'+moRows+'</div>';
+}
+
+// ═══════════════════════════════════════════════════════
+// EXPORT / IMPORT
+// ═══════════════════════════════════════════════════════
+function exportData(){
+  const data={exportedAt:new Date().toISOString(),version:'1.0',customers:S.customers,accounting:S.accounting,vat:S.vat,corporateTax:S.corporateTax,audit:S.audit,other:S.other,recurringTemplates:S.recurringTemplates,incomeLog:S.incomeLog};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='hz-consulting-backup-'+nowYM()+'.json';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+}
+function triggerImport(){document.getElementById('importFile').click();}
+function importData(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      const data=JSON.parse(e.target.result);
+      if(!data.customers&&!data.accounting){alert('Invalid backup file. Please use an HZ Consulting export.');return;}
+      const dateStr=data.exportedAt?new Date(data.exportedAt).toLocaleString():'unknown date';
+      if(!confirm('Import backup from '+dateStr+'?\n\nThis will REPLACE all current data. Are you sure?'))return;
+      S.customers=data.customers||[];
+      S.accounting=data.accounting||[];
+      S.vat=data.vat||[];
+      S.corporateTax=data.corporateTax||[];
+      S.audit=data.audit||[];
+      S.other=data.other||[];
+      S.recurringTemplates=data.recurringTemplates||[];
+      S.incomeLog=data.incomeLog||[];
+      input.value='';
+      saveData();
+      renderAll();
+      alert('Data imported successfully! '+S.customers.length+' customers, '+STORES.reduce((a,s)=>a+S[s].length,0)+' records loaded.');
+    }catch(err){alert('Error reading file: '+err.message);}
+  };
+  reader.readAsText(file);
+}
+
+// ═══════════════════════════════════════════════════════
+// TABS & RENDER
+// ═══════════════════════════════════════════════════════
+const TABS=[
+  {id:'Dashboard',label:'📊 Dash',color:'#475569'},
+  {id:'Customers',label:'👤 Clients',color:'#0e7490'},
+  {id:'Receivables',label:'💰 Recv.',color:'#c2410c'},
+  {id:'Accounting',label:'Accounting',color:'#1d4ed8'},
+  {id:'VAT',label:'VAT',color:'#6d28d9'},
+  {id:'CorporateTax',label:'Corp Tax',color:'#b45309'},
+  {id:'Audit',label:'Audit',color:'#0f766e'},
+  {id:'Other',label:'Other',color:'#9d174d'},
+  {id:'Performance',label:'📈 Analysis',color:'#0f172a'},
+];
+function renderTabs(){document.getElementById('tabBar').innerHTML=TABS.map(t=>{const a=S.activeTab===t.id;return `<button class="tab${a?' on':''}" style="${a?`background:${t.color};color:#fff;border-bottom:3px solid ${t.color};border-radius:5px 5px 0 0;`:''}" onclick="go('${t.id}')">${t.label}</button>`;}).join('');}
+function go(id){S.activeTab=id;renderAll();}
+
+// ═══════════════════════════════════════════════════════
+// LOCALSTORAGE PERSISTENCE
+// ═══════════════════════════════════════════════════════
+const LS_KEY='hz_consulting_data';
+function saveData(){
+  try{
+    const data={
+      customers:S.customers,
+      accounting:S.accounting,
+      vat:S.vat,
+      corporateTax:S.corporateTax,
+      audit:S.audit,
+      other:S.other,
+      recurringTemplates:S.recurringTemplates,
+      incomeLog:S.incomeLog
+    };
+    localStorage.setItem(LS_KEY,JSON.stringify(data));
+  }catch(e){console.warn('Save failed:',e);}
+}
+function loadData(){
+  try{
+    const raw=localStorage.getItem(LS_KEY);
+    if(!raw)return;
+    const data=JSON.parse(raw);
+    S.customers=data.customers||[];
+    S.accounting=data.accounting||[];
+    S.vat=data.vat||[];
+    S.corporateTax=data.corporateTax||[];
+    S.audit=data.audit||[];
+    S.other=data.other||[];
+    S.recurringTemplates=data.recurringTemplates||[];
+    S.incomeLog=data.incomeLog||[];
+  }catch(e){console.warn('Load failed:',e);}
+}
+
+function renderAll(){
+  saveData();
+  renderTabs();buildMoOpts();
+  const el=document.getElementById('appContent');
+  ({
+    Dashboard:()=>el.innerHTML=renderDashboard(),
+    Customers:()=>el.innerHTML=renderCustomers(),
+    Receivables:()=>el.innerHTML=renderReceivables(),
+    Accounting:()=>el.innerHTML=renderAccounting(),
+    VAT:()=>el.innerHTML=renderVAT(),
+    CorporateTax:()=>el.innerHTML=renderCorporateTax(),
+    Audit:()=>el.innerHTML=renderAudit(),
+    Other:()=>el.innerHTML=renderOther(),
+    Performance:()=>el.innerHTML=renderPerformance(),
+  })[S.activeTab]?.();
+}
+loadData();
+S.selectedMonth=nowYM();
+buildMoOpts();
+renderAll();
+</script>
+</body>
+</html>
